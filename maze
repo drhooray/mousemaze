@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+//maze size
+#define SIZE 7
+
+
+//point
+typedef struct {
+	int x;
+	int y;
+}mousepoint;
+
+
+mousepoint pt(int,int);
+
+int maze[SIZE][SIZE]=
+{
+	{2,2,2,2,2,2,2},
+	{2,0,0,0,0,0,2},
+	{2,0,2,0,2,0,2},
+	{2,0,0,2,0,0,2},
+	{2,2,0,2,0,2,2},
+	{2,0,0,0,0,0,2},
+	{2,2,2,2,2,2,2}
+};
