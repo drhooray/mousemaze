@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "maze.cpp"
+
+int visit(int maze[][SIZE],mousepoint start,mousepoint end)
+{
+	if(!maze[start.x][start.y]){
+		maze[start.x][start.y]=1;
+		if(!maze[end.x][end.y]&& 
+			!(visit(maze,pt(start.x,start.y+1),end)||
+			visit(maze,pt(start.x+1,start.y),end)||
+			visit(maze,pt(start.x,start.y-1),end)||
+			visit(maze,pt(start.x-1,start.y),end)))
+		{
+			maze[start.x][start.y]=0;
+		}
+	}
+	return maze[end.x][end.y];
+}
+
+void print(int maze[][SIZE])
+{
+	int i,j;
+	for (i=0;i<SIZE;i++){
+		for (j=0;j<SIZE;j++){
+			switch (maze[i][j]){
+			case 0: printf(" ");break;
+			case 1: printf(".");break;
+			case 2: printf("#");break;
+			}
+		}
+		printf("\n");
+	}
+}
