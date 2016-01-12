@@ -3,6 +3,14 @@
 
 #include "maze.cpp"
 
+//mouse point function
+mousepoint pt(int x,int y)
+{
+	mousepoint p={x,y};
+	return p;
+}
+
+
 int visit(int maze[][SIZE],mousepoint start,mousepoint end)
 {
 	if(!maze[start.x][start.y]){
